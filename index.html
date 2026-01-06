@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Sweet Treats Bakery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="styles.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        // Food item database
+        const foodItems = {
+            "Chocolate Cake": { price: "₹500", link: "chocolate-cake.html" },
+            "Croissants": { price: "₹150", link: "croissants.html" },
+            "Macarons": { price: "₹200", link: "macarons.html" },
+            "Cupcakes": { price: "₹250", link: "cupcakes.html" },
+            "Donuts": { price: "₹350", link: "donuts.html" },
+            "Red Velvet": { price: "₹550", link: "red-velvet.html" },
+            "Cookies": { price: "₹150", link: "cookies.html" },
+            "Dual Forest Cake": { price: "₹850", link: "dual-forest-cake.html" },
+            "Kaju Katli": { price: "₹450", link: "kaju-katli.html" },
+            "Pinata": { price: "₹1550", link: "pinata.html" },
+            "Cream Roll": { price: "₹30", link: "cream-roll.html" },
+            "Chocolate Trifle": { price: "₹80", link: "chocolate-trifle.html" }
+        };
+
+        // Display submenu of food items with costs
+        function handleCurrencyClick() {
+            let submenu = "Food Items and Prices:\n";
+            for (const [item, details] of Object.entries(foodItems)) {
+                submenu += `${item}: ${details.price}\n`;
+            }
+            alert(submenu);
+        }
+
+        // Handle cart functionality
+        function handleCartClick() {
+            const cartItems = ["Chocolate Cake", "Croissants", "Donuts", "Cupcakes", "Macarons"];
+            if (cartItems.length > 0) {
+                alert(`Your cart contains: ${cartItems.join(", ")}.`);
+            } else {
+                alert("Your cart is empty! Add some delicious treats!");
+            }
+        }
+    </script>
+    <style>
+        nav {
+            background-color: #ff6f61;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .links {
+            display: flex;
+            gap: 1rem;
+        }
+        nav .links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav .links a:hover {
+            text-decoration: underline;
+        }
+        nav .icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        #search-result {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sweet Treats Bakery</h1>
+    </header>
+    <nav>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="products.html">Our Products</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="icons">
+            <img src="https://img.freepik.com/premium-photo/3d-bakery-cart-icon-mobile-fresh-pastry-display-illustration-logo_762678-87628.jpg" alt="Cart Icon" class="icon" title="Cart" onclick="handleCartClick()">
+            <img src="https://i.pinimg.com/originals/72/01/f3/7201f3fe96ed92f8c4edbfe41dc67dce.jpg" alt="Rupees Icon" class="icon" title="Currency" onclick="handleCurrencyClick()">
+        </div>
+    </nav>
+    <section class="hero">
+        <h2>Delicious Treats Made Fresh Daily</h2>
+        <p>Visit us for cakes, pastries, and more!</p>
+    </section>
+    <section class="content">
+        <h2>Welcome to Sweet Treats</h2>
+        <p>We offer a variety of fresh and delightful baked goods made with love.</p>
+        <!-- Search result section -->
+        <div id="search-result"></div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Sweet Treats Bakery. All rights reserved.</p>
+    </footer>
+</body>
+</html>
